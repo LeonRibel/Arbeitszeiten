@@ -1,0 +1,30 @@
+<IfModule mod_headers.c>
+    # CORS headers
+    Header always set Access-Control-Allow-Origin "http://localhost:5173"
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+    Header always set Access-Control-Allow-Credentials "true"
+</IfModule>
+
+# Handle OPTIONS preflight requests
+<If "%{REQUEST_METHOD} == 'OPTIONS'">
+    Require all granted
+    # Keine Content-Length setzen, Apache/PHP regelt das automatisch
+    Header always set Content-Type "text/plain"
+    # Direkt abbrechen, kein Redirect
+    RewriteEngine Off
+</If>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Don't rewrite if the file or directory exists (static assets)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Exclude common asset extensions
+    RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|json|xml|txt|pdf)$ [NC]
+
+    # Rewrite all other requests to index.php with path parameter
+    RewriteRule ^(.*)$ index.php?path=$1 [QSA,L]
+</IfModule>

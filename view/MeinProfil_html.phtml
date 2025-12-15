@@ -1,0 +1,15 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="usereingabe">
+
+    <h1>Mein Profil</h1>
+
+    <div class="profilinfo">
+        <p><strong>Vorname:</strong> <?= htmlspecialchars($user['Vorname'] ?? '') ?></p>
+        <p><strong>Nachname:</strong> <?= htmlspecialchars($user['Nachname'] ?? '') ?></p>
+        <p><strong>Username:</strong> <?= htmlspecialchars($user['username'] ?? '') ?></p>
+        <p><strong>Urlaubstage:</strong> <?= htmlspecialchars($user['Resturlaub'] ?? '') ?></p>
+        <p><strong>Fehltage:</strong> <?= htmlspecialchars($user['Fehltage'] ?? '') ?></p>
+    </div>
+
+    <a href="MeinProfil/update" class="button-link">Daten bearbeiten</a>
+</div>

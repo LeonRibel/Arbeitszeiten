@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <title>Startseite</title>
+  <style>
+    .button-container-top {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      display: flex;
+      gap: 15px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blur-spots"></div>
+  <button class="hamburger" onclick="toggleSidebar()">☰</button>
+  
+
+    <div class="sidebar" id="sidebar">
+      
+      <div class="sidebar-header">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+      </div>
+      <a class="sidebarlinks" href="/">Home</a>
+      <a class="sidebarlinks" href="/Urlaub">Urlaubsanträge</a>
+      <a class="sidebarlinks" href="/Fehlzeiten">Fehlzeiten</a>
+      <a class="sidebarlinks" href="/Ueberstunden">Überstunden</a>
+      <a class="sidebarlinks" href="#contact">Kalender</a>
+      <a class="sidebarlinks" href="#contact">Kunden</a>
+      <a class="sidebarlinks" href="/Mitarbeiter">Mitarbeiter</a>
+      <a class="sidebarlinks" href="#contact">Projekte</a>
+      <a class="sidebarlinks" href="/MeinProfil">Mein Profil</a>
+    </div>
+
+    <div class="content">
+      <?php if (!empty($this->debugs)): ?>
+        <?php foreach ($this->debugs as $key => $value): ?>
+          <pre style="border: 1px solid black; background: grey;"><?= print_r($value, true) ?> </pre>
+        <?php endforeach; ?>
+      <?php endif; ?>
+
+      <?php foreach ($this->getFlashMessages() as $type => $messages) : ?>
+        <?php foreach ($messages as $message) : ?>
+          <div class="flash flash-<?= $type ?>"><?= $message ?></div>
+        <?php endforeach; ?>
+      <?php endforeach; ?>
+
+      <?php include $view . "_html.phtml"; ?>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('active');
+  document.body.classList.toggle('sidebar-open');
+}
+  </script>
+</body>
+ 
+
+</html> 

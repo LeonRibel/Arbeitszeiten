@@ -1,0 +1,103 @@
+<?php
+
+namespace App\Controller;
+
+use App\Repositorys\UeberstundenRepository;
+use App\ValueObject\ArbeitsJahr;
+use App\ValueObject\ArbeitsJahrCollection;
+use App\ValueObject\Arbeitstag;
+use App\View\ViewHelper;
+use DateTime;
+
+class UeberstundenController
+{
+    private $repository;
+
+    private ViewHelper $viewHelper;
+
+    public function __construct()
+    {
+        $this->repository = new UeberstundenRepository();
+        $this->viewHelper = new ViewHelper();
+    }
+
+
+    public function auslesen()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == "GET") {
+            $id = $_SESSION['user'] ?? null;
+
+            $arbeitszeiten = $this->repository->fetchArbeitszeitenById($id);
+
+            foreach ($arbeitszeiten as $eintrag) {
+                $eintrag['Start_von'] = new \DateTime($eintrag['Start_von']);
+                $eintrag['Ende_bis'] = new \DateTime($eintrag['Ende_bis']);
+            }
+        }
+    }
+
+    public function arbeitstageZaehlen()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $id = $_SESSION['user'] ?? null;
+            $Start_von = $_GET['Start_von'] ?? null;
+            $Ende_bis = $_GET['Ende_bis'] ?? null;
+        }
+
+        $arbeitszeiten = $this->repository->arbeitstageZaehlen($id, $Start_von, $Ende_bis,);
+
+        $Start_von = new \DateTime($_GET['Start_von']);
+        $Ende_bis = new \DateTime($_GET['Ende_bis']);
+
+        return $this->viewHelper->render("Ueberstunden", ['arbeitszeiten' => $arbeitszeiten]);
+    }
+
+    public function Ueberstunden()
+    {
+        $id = $_SESSION['user'] ?? null;
+
+        $arbeitszeiten = [];
+        $wochen = [];
+        $ueberstundenProMonat = [];
+        $ueberstundenProJahr = [];
+        $wochenStunden = 0;
+
+        if (!$id) {
+            throw new \Exception('Not Logged In');
+        }
+
+        $stunden = $this->repository->fetchArbeitszeitenById($id);
+
+        $arbeitszeiten = ArbeitsJahrCollection::fromArray($stunden);
+
+
+        /**
+        foreach ($stunden as $eintrag) {
+            $arbeitszeiten[$jahr][$monat][$woche][$tag] = $eintrag;
+            $wochenStunden += $gesamtStunden;
+            $wochen[$woche] += $gesamtStunden;
+        }
+        $wochenPensum = [];
+        $wochenWarnung = [];
+
+        foreach ($wochen as $woche => $wochenStunden) {
+            $wochenPensum[$woche] = $wochenStunden - 40;
+
+            if ($wochenStunden > 50) {
+                $wochenWarnung[$woche] = 'Achtung: das Wochenpensum von maximal 50std wurde überschritten';
+            } else {
+                $wochenWarnung[$woche] = '';
+            }
+        }
+             */
+        return $this->viewHelper->render(
+            "Ueberstunden",
+            [
+                'arbeitszeiten' => $arbeitszeiten,
+                'ueberstundenProMonat' => $ueberstundenProMonat,
+                'ueberstundenProJahr' => $ueberstundenProJahr,
+                'wochen' => $wochen,
+            ]
+        );
+    }
+}

@@ -1,0 +1,22 @@
+<div class="MitarbeiterUpdate">
+  <form method="post">
+    <h3>Mitarbeiter bearbeiten</h3>
+
+    <label for="Vorname">Vorname</label>
+    <input id="Vorname" type="text" name="Vorname" value="<?= $vorhandene_daten["Vorname"]; ?>">
+
+    <label for="Nachname">Nachname</label>
+    <input id="Nachname" type="text" name="Nachname" value="<?= $vorhandene_daten["Nachname"]; ?>">
+
+    <label for="username">Username</label>
+    <input id="username" type="text" name="username" value="<?= $vorhandene_daten["username"]; ?>">
+
+    <label for="password"> Passwort</label>
+    <input id="password" type="password" name="password" placeholder=" <?= isset($_GET['id']) ? '*****' : '' ?>">
+
+    <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
+
+    <input type="submit" value="bestätigen">
+    <a href="Mitarbeiter" class="button-link">Zurück zum Dashboard</a>
+  </form>
+</div>

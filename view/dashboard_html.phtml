@@ -1,0 +1,145 @@
+<?php
+$wochentage = [
+  1 => 'Montag',
+  2 => 'Dienstag',
+  3 => 'Mittwoch',
+  4 => 'Donnerstag',
+  5 => 'Freitag',
+  6 => 'Samstag',
+  7 => 'Sonntag'
+];
+
+$heutigekalenderwoche = date("W");
+$heute = $wochentage[date("N")];
+
+?>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="info">
+  <div class="infotext">
+    <?php if ($gesamtZeitInSekunden < (40 * 3600)): ?>
+      <p>Sie haben Ihr wöchentliches noch nicht erreicht. Aktuell:
+        <?= $ZeitGesamt ?></p>
+    <?php else: ?>
+      <p>Sie haben Ihr Wochenziel erreicht. <?= $ZeitGesamt ?></p>
+    <?php endif; ?>
+  </div>
+</div>
+
+<div class="leiste-container">
+  <div class="leiste">
+    <div class="Tag">Aktueller Tag:
+      <?php if ($kalenderwoche === $kalenderwoche) ?>
+      <?= $wochentage[date("N")] ?></div>
+  </div>
+</div>
+
+<div class="background-container">
+  <div class="Kalenderwoche">Aktuelle Kalenderwoche: <?= $kalenderwoche ?></div>
+
+  <div class="background">
+    <?php foreach (['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'] as $tag): ?>
+      <?php $letztesEnde = null; ?>
+      <?php $istHeute = ($tag === $heute && $kalenderwoche == date("W")) ? 'heute' : ''; ?>
+
+      <div class="box <?= $istHeute ?>">
+        <div class="boxtitle">
+          <?= $tag ?>
+          <?php
+          
+          $wochentagNummer = array_search($tag, $wochentage);
+          $datumDesTages = date('Y-m-d', strtotime(date('Y') . "-W" . $kalenderwoche . "-" . $wochentagNummer));
+          ?>
+          <a href="<?= $this->getUrl('Arbeitszeiten/update') . '?datum=' . $datumDesTages ?>" class="button-link" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="20" height="20">
+              <circle cx="12" cy="12" r="10" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8M8 12h8" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="boxeintraege">
+
+          <?php if (!empty($arbeitszeitenNachTag[$tag])): ?>
+            <?php
+            usort($arbeitszeitenNachTag[$tag], function ($a, $b) {
+              return strtotime($a['Start_von']) <=> strtotime($b['Start_von']);
+            });
+            ?>
+
+            <?php foreach ($arbeitszeitenNachTag[$tag] as $Arbeitszeit): ?>
+              <?php
+              $start = strtotime($Arbeitszeit['Start_von']);
+              $ende = strtotime($Arbeitszeit['Ende_bis']);
+              ?>
+
+              <?php if ($letztesEnde !== null && $start > $letztesEnde): ?>
+                <?php
+                $pauseInSekunden = $start - $letztesEnde;
+                $pauseStunden = floor($pauseInSekunden / 3600);
+                $pauseMinuten = floor(($pauseInSekunden % 3600) / 60);
+                $pauseText = ($pauseStunden > 0 ? $pauseStunden . 'h ' : '') . $pauseMinuten . 'min';
+                ?>
+                <div class="linie-mit-text">
+                  <div class="linie"></div>
+                  <span class="linientext"><?= $pauseText ?></span>
+                  <div class="linie"></div>
+                </div>
+              <?php endif; ?>
+
+              <div class="boxeintrag">
+                <?= date('H:i', $start) ?> - <?= date('H:i', $ende) ?>
+
+                <?php if (!empty($Arbeitszeit['Aufgaben'])): ?>
+                  <a href="/Arbeitszeiten/delete?id=<?= $Arbeitszeit['id']; ?>" class="button-link" style="display: inline-flex; align-items: center; justify-content: center;" onclick="return confirm('Bist du sicher, dass du diese Arbeitszeit löschen willst?');">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="red" width="10" height="10">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </a>
+
+                  <a href="/Arbeitszeiten/update?id=<?= $Arbeitszeit['id']; ?>" class="button-link" style="display: inline-flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="10" height="10">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 3.487a2.25 2.25 0 113.182 3.182L7.5 19.213H4v-3.5L16.862 3.487z" />
+                    </svg>
+                  </a>
+
+                  <?php
+                  $zeitInSekunden = $ende - $start;
+                  $ZeitStunden = floor($zeitInSekunden / 3600);
+                  $ZeitMinuten = floor(($zeitInSekunden % 3600) / 60);
+                  $ZeitText = ($ZeitStunden > 0 ? $ZeitStunden . 'h ' : '') . $ZeitMinuten . 'min';
+                  ?>
+                  <div class="boxeintraege">
+                    <span><?= $ZeitText ?></span>
+                  </div>
+                  <br><span class="aufgabe"><?= htmlspecialchars($Arbeitszeit['Aufgaben']) ?></span>
+                <?php endif; ?>
+              </div>
+
+              <?php $letztesEnde = $ende; ?>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
+</div>
+
+<div class="Seite">
+  <a href="?kw=<?= $vorherigeKW ?>" class="buttonseite vorherige">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75-6.75M4.5 12l6.75 6.75"></path>
+    </svg>
+    <div class="text">vorherige Woche</div>
+  </a>
+
+  <a href="?kw=<?= $heutigekalenderwoche ?>" class="buttonseite">
+    <div class="text">Aktuelle Woche</div>
+  </a>
+
+  <a href="?kw=<?= $naechsteKW ?>" class="buttonseite">
+    <div class="text">nächste Woche</div>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+    </svg>
+  </a>
+</div>

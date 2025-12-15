@@ -1,0 +1,22 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="button-group"></div>
+<div class="usereingabe">
+  <form method="post">
+    <h3>Fehlzeiten eintragen</h3>
+
+    <label for="Krankheit_start">Krankheitsbeginn</label>
+    <input id="Krankheit_start" type="date" name="Krankheit_start"
+      value="<?= isset($vorhandene_daten["Krankheit_start"]) ? date('Y-m-d', strtotime($vorhandene_daten["Krankheit_start"])) : '' ?>">
+
+    <label for="Krankheit_ende">Krankheitsende</label>
+    <input id="Krankheit_ende" type="date" name="Krankheit_ende"
+      value="<?= isset($vorhandene_daten["Krankheit_ende"]) ? date('Y-m-d', strtotime($vorhandene_daten["Krankheit_ende"])) : '' ?>">
+
+    <input type="hidden" name="id" value="<?= $vorhandene_daten['id'] ?? '' ?>">
+
+   
+      <input type="submit" value="Bestätigen">
+      <a href="Fehlzeiten" class="button-link">Zurück zum Dashboard</a>
+    </div>
+  </form>
+</div>

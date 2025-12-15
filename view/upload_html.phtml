@@ -1,0 +1,12 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="usereingabe">
+  <h3>Datei für <?= htmlspecialchars(date('d.m.Y', strtotime($fehlzeit['Krankheit_start'])))?> -
+                <?= htmlspecialchars(date('d.m.Y', strtotime($fehlzeit['Krankheit_ende'])))?> hochladen</h3>
+
+  <form method="post" enctype="multipart/form-data" action="/Fehlzeiten/upload?id=<?= $fehlzeit['Fehlzeiten_id'] ?>">
+    <input type="file" name="datei" required>
+    <input type="submit" value="Hochladen">
+  </form>
+
+  <a href="/Fehlzeiten" class="button-link">Zurück</a>
+</div>

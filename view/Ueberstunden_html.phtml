@@ -1,0 +1,74 @@
+<div class="table">
+    <div class="thead"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <div class="tr">
+            <div class="td">Datum/Monat/Jahr</div>
+            <div class="td">Gearbeitete Stunden</div>
+            <div class="td">Überstunden/ Minusstunden</div>
+            <div class="td">Warnung</div>
+            <div class="td">Nachtarbeit</div>
+        </div>
+    </div>
+    <div class="tbody">
+        <?php /** @var App\ValueObject\ArbeitsJahrCollection $arbeitszeiten */ ?>
+
+        <?php foreach ($arbeitszeiten->jahre as $jahr => $jahresEintraege): ?>
+            <div class="tr">
+                <div class="td"><?= $jahr ?></div>
+                <div class="td"><?= $jahresEintraege->getGearbeiteteStunden() ?></div>
+                <div class="td"><?= $jahresEintraege->getUeberstunden() ?></div>
+                <div class="td"><?= $jahresEintraege->GetJahresWarnung(); ?></div>
+                <div class="td"></div>
+            </div>
+
+            <?php foreach ($jahresEintraege->monate as $monat => $monatEintraege): ?>
+                <div class="tr">
+                    <div class="td"><?= $monat ?>.<?= $jahr ?></div>
+                    <div class="td"><?= $monatEintraege->getGearbeiteteStunden() ?></div>
+                    <div class="td"><?= $monatEintraege->getUeberstunden() ?></div>
+                    <div class="td"><?= $monatEintraege->getMonatsWarnung(); ?></div>
+                    <div class="td"></div>
+                </div>
+
+                <?php foreach ($monatEintraege->tage as $tag => $arbeitstag): ?>
+                    <div class="tr">
+                        <div class="td">stunden für diesen Tag:</div>
+                        <div class="td"><?= (new \DateTime($arbeitstag->getTag()))->format('Y-m-d') ?></div>
+                        <div class="td"><?= htmlspecialchars($arbeitstag->getArbeitsStunden()) ?></div>
+                        <div class="td"><?= htmlspecialchars($arbeitstag->getUeberstunden()) ?> überstunden/Minusstunden</div>
+                       <div class="td">
+                            <span class="warnungen"><?= $arbeitstag->getWarnungen(); ?></span>
+                            <?= ($arbeitszeit['sonntag'] ?? '') ? "<br>{$arbeitszeit['sonntag']}" : "" ?>
+
+                            <?php if (!empty($arbeitszeit['sonntag'])): ?>
+                                <form method="POST" action="/ueberstunden/ersatzurlaub" class="ersatzurlaub-form">
+                                    <input type="hidden" name="datum" value="<?= $arbeitszeit['tag'] ?>">
+                                    <button type="submit" class="ersatzurlaub-button">Ersatzurlaub vergeben?</button>
+                                </form>
+                            <?php endif; ?>
+                        </div>
+                        <div class="td">
+                            <?= (($arbeitszeit['nachtstunden'] ?? 0) >= 2)
+                                ? htmlspecialchars(($arbeitszeit['nachtarbeit'] ?? '') . " ({$arbeitszeit['nachtstunden']} Std)")
+                                : "" ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+
+
+                <?php /*
+                <?php foreach ($monatEintraege as $woche => $wocheEintraege): ?>
+                    <tr>
+                        <div class="td">Wochenpensum KW<?= $woche ?></div>
+                        <div class="td"><?= $wochen[$woche] ?? 0 ?></div>
+                        <div class="td"><?= $wochenPensum[$woche] ?? "keine Angabe"; ?></div>
+                        <div class="td">
+                            <?= ($wochenWarnung[$woche] ?? '') ? "<span class='warnungen'>{$wochenWarnung[$woche]}</span>" : "" ?>
+                        </div>
+                        <div class="td"></div>
+                    </tr>
+                <?php endforeach; ?>
+                */ ?>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
+</div>

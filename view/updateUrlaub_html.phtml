@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="update">
+  <form method="post">
+    <h3>Urlaubstage beantragen</h3>
+
+    <label for="urlaub_start">Urlaubsbeginn</label>
+    <input id="urlaub_start" type="date" name="urlaub_start" value="<?= $vorhandene_daten["urlaub_start"] ?? ''?>">
+
+    <label for="urlaub_ende">Urlaubsende</label>
+    <input id="urlaub_ende" type="date" name="urlaub_ende" value="<?= $vorhandene_daten["urlaub_ende"] ?? '' ?>">
+
+    <input type="hidden" name="id" value="<?= $vorhandene_daten['id'] ?? '' ?>">
+
+
+    <input type="submit" value="bestätigen">
+    <a href="Urlaub" class="button-link">Zurück zum Dashboard</a>
+  </form>
+</div>

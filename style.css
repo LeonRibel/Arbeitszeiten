@@ -1,0 +1,1377 @@
+/* ==========================
+   1. Basis / Reset / Body
+   ========================== */
+
+body {
+  margin: 0;
+  /* Kein Standardmargin */
+  min-height: 100vh;
+  /* Body immer mindestens volle Höhe */
+  background-color: #19191a;
+  /* Dunkler Hintergrund */
+  font-family: Verdana, sans-serif;
+  color: white;
+  /* Standardtextfarbe */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ==========================
+   2. Scroll-Container
+   ========================== */
+
+.scroll-container {
+  height: 400px;
+  overflow-y: auto;
+  /* Vertikales Scrollen */
+  border: 1px solid #ccc;
+}
+
+/* ==========================
+   3. Hintergrund / Animationen
+   ========================== */
+
+.blur-spots {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 20% 40%, rgba(42, 90, 162, 0.6) 0%, transparent 25%),
+    radial-gradient(circle at 50% 90%, rgba(26, 70, 136, 0.5) 0%, transparent 25%),
+    radial-gradient(circle at 60% 30%, rgba(26, 70, 136, 0.4) 0%, transparent 25%),
+    radial-gradient(circle at 100% 20%, rgba(26, 70, 136, 0.8) 0%, transparent 25%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(100px);
+  /* Unschärfe für Flecken */
+  animation: moveSpots 60s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveSpots {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-100px, 50px) rotate(180deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+/* ==========================
+   4. Allgemeiner Content / Container
+   ========================== */
+
+.content {
+  padding: 20px;
+  flex-grow: 1;
+  /* Content dehnt sich aus */
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+/* Container für Buttons zentriert */
+.button-container,
+.Seite {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+  /* Zeilen umbrechen bei Bedarf */
+}
+
+/* ==========================
+   5. Buttons / Glass Buttons / Links
+   ========================== */
+
+.buttonseite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 2px solid darkgray;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonseite:hover {
+  background-color: lightgray;
+  color: #303030;
+}
+
+.buttonseite svg {
+  width: 1.2em;
+  height: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+.buttonseite:hover svg {
+  transform: translateX(5px);
+}
+
+.buttonseite.vorherige:hover svg {
+  transform: translateX(-5px);
+}
+
+.buttonseite .text {
+  display: inline-block;
+}
+
+
+/* Container für Buttongruppen */
+.button-container {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 900px;
+  display: flex;
+  gap: 15px;
+}
+
+/* Link-Style für Buttons */
+a.button-link {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 2px solid #DCE1E8;
+  text-decoration: none;
+  color: #DCE1E8;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.button-link:hover {
+  background-color: lightgray;
+  color: #303030;
+}
+
+/* Minimalistische Bearbeiten-Buttons */
+.bearbeiten {
+  margin-top: 10px;
+  padding: 2.5px 5px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 2px solid #DCE1E8;
+  text-decoration: none;
+  color: #DCE1E8;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bearbeiten:hover {
+  background-color: lightgray;
+  color: #303030;
+}
+
+/* ==========================
+   6. Input / Formulare
+   ========================== */
+
+.eingabe-feld {
+  border-radius: 25px;
+  margin-top: 20px;
+  color: black;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+input[type="date"] {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #90A4AE;
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+/* ==========================
+   7. Begrüßung / Willkommen
+   ========================== */
+
+.begruesung {
+  font-size: 20px;
+  font-style: italic;
+  color: white;
+}
+
+.willkommen {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================
+   8. Glass Button / Stil
+   ========================== */
+
+.glass-button,
+.buttonseite,
+.seitennummer {
+  padding: 10px 30px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgb(220, 225, 232),
+    inset 0 2px 4px rgba(255, 255, 255, 0.25);
+}
+
+.glass-button:hover .buttonseite:hover,
+.seitennummer:hover {
+  transform: scale(1.02);
+}
+
+.glass-button.wide .buttonseite.wide,
+.seitennummer.wide {
+  min-width: 160px;
+  margin: 5px;
+}
+
+/* ==========================
+   9. Button-Rows
+   ========================== */
+
+.button-row {
+  margin-top: 40px;
+  display: flex;
+  justify-content: right;
+  gap: 25px;
+}
+
+/* ==========================
+   10. Seite / Container für Content
+   ========================== */
+
+.Seite {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 900px;
+  font-size: 15px;
+  color: white;
+}
+
+/* ==========================
+   11. Update-Formulare
+   ========================== */
+
+.update {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* volle Breite nutzen */
+  min-width: 400px;
+  /* auf großen Bildschirmen nicht zu breit */
+  padding: 40px 30px;
+  /* großzügiges Innenpadding */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.update form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.update form,
+.update .button-link {
+  margin: 20px auto;
+}
+
+.update label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.update input[type="text"],
+.update input[type="datetime-local"],
+.update input[type="date" i] {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-sizing: border-box;
+}
+
+.update input[type="submit"],
+.update .button-link {
+  margin-top: 15px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: transparent;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.update input[type="submit"] {
+  background-color: white;
+  color: black;
+}
+
+.update .button-link {
+  background-color: white;
+  color: black;
+}
+
+/* ==========================
+   12. Sidebar / Navigation
+   ========================== */
+
+/* Grundstil Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(56, 56, 56, 0.98);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  transform: rotateX(-90deg);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 1200;
+  overflow: hidden;
+}
+
+/* Sidebar aktiv */
+.sidebar.active {
+  animation: swingDown 1s ease forwards;
+}
+
+@keyframes swingDown {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: rotateX(15deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+/* Sidebar Links */
+.sidebarlinks {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.sidebarlinks:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar Header / Close Button */
+.sidebar-header {
+  text-align: center;
+  font-size: larger;
+  color: rgb(220, 225, 232);
+  font-weight: bold;
+}
+
+.close-btn {
+  display: block;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+
+body.sidebar-open {
+  overflow: hidden;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: block;
+  position: fixed;
+  top: 15px;
+  left: 40px;
+  font-size: 50px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* ==========================
+   13. Box / Container / Layout
+   ========================== */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.box {
+  margin-top: 30px;
+  flex: 1;
+  background-color: #707070;
+  color: #DCE1E8;
+  text-align: center;
+  padding: 30px 0 0;
+  border-radius: 8px;
+  min-height: 350px;
+  border: 3px solid #DCE1E8;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  min-width: 240px;
+}
+
+.boxtitle {
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: medium;
+  gap: 10px;
+}
+
+.boxeintraege {
+  align-self: center;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.boxeintrag {
+  padding: 4px;
+  font-size: 12px;
+}
+
+.boxeintrag:first-of-type,
+.boxeintrag:last-of-type {
+  border: none;
+}
+
+/* Linien mit Text in Boxen */
+.linie-mit-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.linie {
+  flex: 1;
+  height: 2px;
+  background-color: #DCE1E8;
+  opacity: 0.8;
+}
+
+.linientext {
+  margin: 0 15px;
+  color: #DCE1E8;
+  font-style: italic;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Hintergrund-Container für Boxen */
+.background-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  margin-top: 100px;
+  background: #383838;
+  flex-direction: column;
+}
+
+.background {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+  background: transparent;
+  flex-direction: row;
+}
+
+/* Box-Container mit flex Wrap */
+.backgrounds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================
+   14. Fortschrittskreise / Progress Circle
+   ========================== */
+
+.progress-circle {
+  margin-left: 100px;
+  width: 80px;
+  height: 80px;
+  right: 90px;
+  border-radius: 50%;
+  background: conic-gradient(#4079BF 0% 80%, #ccc 80% 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #DCE1E8;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+}
+
+/* ==========================
+   15. Kalender / Tag / KW
+   ========================== */
+
+.Kalenderwoche {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #DCE1E8;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.Tag {
+  padding: 8px 12px;
+  background-color: #383838;
+  border: 1px solid #383838;
+  font-style: italic;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Box heute hervorheben */
+.box.heute {
+  border: 2px solid #56A8D8;
+  background-color: rgba(79, 156, 234, 0.4);
+  box-shadow: 0 0 10px rgba(79, 156, 234, 0.4);
+  transition: 0.3s ease;
+}
+
+.box.heute .boxtitle {
+  font-weight: bold;
+  color: #DCE1E8;
+}
+
+/* ==========================
+   16. Tabellen Grundstruktur
+   ========================== */
+
+/* Flexbox für Tabelle */
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+  margin: 50px auto;
+  background-color: #383838;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 19px rgba(228, 184, 184, 0.5);
+  overflow-x: auto;
+  padding: 0;
+}
+
+/* Table Head / Body */
+.thead,
+.tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+.thead {
+  background-color: #383838;
+  text-transform: uppercase;
+  border: 1.5px solid #DCE1E8;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Table Rows */
+.tr {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid darkgray;
+}
+
+/* Table Cells */
+.tr .td {
+  flex: 1;
+  min-width: 80px;
+  /* verhindert zu schmale Zellen */
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Table Titel */
+.table-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Verdana, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================
+   17. Info-Box / Tooltip
+   ========================== */
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 900px;
+  /* gleiche Breite wie die Tabelle */
+  margin: 0 auto 20px auto;
+  /* zentriert & Abstand nach unten */
+  border-radius: 40px;
+  background-color: #222223;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================
+   18. Media Queries / Responsive Styles
+   ========================== */
+
+@media (min-width: 1024px) {
+  .table{
+    width: 1000px;
+  }
+}
+
+/* Tablets & mittlere Geräte */
+@media (max-width: 1024px) {
+  
+
+  /*.update form {
+    max-width: 100%;
+    Breite anpassen 
+    margin: 0 auto;
+
+  }
+
+  .update input[type="text"],
+  .update input[type="datetime-local"],
+  .update input[type="date"],
+  .update input[type="submit"],
+  .update .button-link {
+    width: 100%;
+     volle Breite 
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    margin-right: 30px;
+  }*/
+
+
+  .content {
+    padding: 30px;
+  }
+
+  .thead {
+    display: none;
+  }
+  .thead .td:not(.aktionen) {
+    display: none;
+    /* alles außer der Aktions-Spalte ausblenden */
+  }
+
+  .thead {
+    display: flex;
+    /* die Zeile selbst sichtbar lassen */
+    justify-content: flex-end;
+    /* Buttons rechts ausrichten */
+  }
+
+  .thead .td.aktionen {
+    display: flex;
+    gap: 8px;
+    /* Abstand zwischen den Buttons */
+    align-items: center;
+  }
+
+  .thead .td.aktionen .button-link {
+    display: inline-flex;
+    /* Buttons sichtbar machen */
+  }
+
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .info {
+    display: none;
+  }
+
+  .arbeitszeiten-table th,
+  .arbeitszeiten-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .background {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 20px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+
+  .background-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* volle Breite nutzen */
+    gap: 20px;
+    padding: 0 20px;
+    /* Abstand innen */
+    box-sizing: border-box;
+  }
+
+  .box {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    align-self: stretch !important;
+    margin: 0;
+    /* Padding im Container reicht */
+    box-sizing: border-box;
+  }
+}
+
+/* Kleine Geräte / Smartphones (z.B. iPhone) */
+@media (max-width: 768px) {
+  .boxeintraege {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* horizontal zentrieren */
+    width: auto !important; /* nicht 100%, damit Zentrierung funktioniert */
+    align-self: center !important; /* Überschreibt flex-end */
+    gap: 10px;
+  }
+
+
+  .boxeintraege .button-links,
+  .boxeintraege .buttonseite {
+    width: auto !important;    /* keine volle Breite */
+    min-width: 100px;          /* optional, damit sie klickbar bleiben */
+    margin: 0;                 /* Margin reset */
+  }
+
+  .usereingabe {
+    width: 100% !important;
+    /* fast volle Breite */
+    max-width: 360px !important;
+    /* für große Smartphones */
+    margin: 20px auto !important;
+    /* zentriert */
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    font-size: 0.95rem !important;
+    text-align: center !important;
+    /* alle Inhalte zentriert */
+  }
+
+  .usereingabe h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 15px !important;
+  }
+
+  .profilinfo {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: left !important;
+    /* Texte linksbündig für bessere Lesbarkeit */
+  }
+
+  .profilinfo p {
+    font-size: 1rem !important;
+    margin: 0 !important;
+  }
+
+  .button-link {
+    display: block !important;
+    padding: 12px !important;
+    margin-top: 15px !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+    border-radius: 8px !important;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 36px;
+    color: white;
+    z-index: 1001;
+  }
+
+  /* KORRIGIERT: Update Container für mobile Geräte */
+  .update {
+    width: 95% !important;
+    max-width: 95% !important;
+    min-width: unset !important;
+    padding: 25px 20px !important;
+    margin: 20px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* KORRIGIERT: Update Form */
+  .update form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* KORRIGIERT: Alle Input-Felder im Update-Formular */
+  .update input[type="text"],
+  .update input[type="datetime-local"],
+  .update input[type="date"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    padding: 12px !important;
+    margin: 0 !important;
+  }
+
+  /* KORRIGIERT: Submit Button und Links */
+  .update input[type="submit"],
+  .update .button-link {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    padding: 14px !important;
+    margin-top: 10px !important;
+  }
+
+  .tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #383838;
+  }
+
+  .linie-mit-text .linientext {
+    font-size: 13px;
+  }
+
+  .box {
+    padding: 25px 12px;
+    min-height: 280px;
+  }
+
+  .boxeintrag {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .table {
+    display: block;
+    width: 100%;
+    overflow-x: visible;
+    min-width: 20px;
+  }
+
+  .td.aktionen {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: center; /* horizontal zentrieren */
+    justify-content: center; /* optional vertikal zentrieren */
+  }
+  .td.aktionen .button-links {
+    width: 38px;
+    height: 38px;
+  }
+  .td.aktionen .button-links svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .td.aktionen .button-links:hover {
+    
+    transform: scale(1.05);
+  }
+}
+
+/* Wenn Bildschirm noch kleiner wird (iPhones < 480px): Icons untereinander */
+@media (max-width: 480px) {
+  .login-box {
+    width: 100%;
+    padding: 30px 20px;
+    overflow: hidden;
+  }
+
+  .login-begruesung {
+    font-size: 1.2rem;
+  }
+
+  .login-input,
+  .login-button {
+    font-size: 0.95rem;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 36px;
+    color: white;
+    z-index: 1001;
+  }
+
+  /* KORRIGIERT: Update Container für mobile Geräte */
+  .update {
+    width: 95% !important;
+    max-width: 95% !important;
+    min-width: unset !important;
+    padding: 25px 20px !important;
+    margin: 20px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* KORRIGIERT: Update Form */
+  .update form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* KORRIGIERT: Alle Input-Felder im Update-Formular */
+  .update input[type="text"],
+  .update input[type="datetime-local"],
+  .update input[type="date"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    padding: 12px !important;
+    margin: 0 !important;
+  }
+
+  /* KORRIGIERT: Submit Button und Links */
+  .update input[type="submit"],
+  .update .button-link {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    padding: 14px !important;
+    margin-top: 10px !important;
+  }
+
+
+  body {
+    font-size: 14px;
+  }
+
+  .hamburger {
+    font-size: 40px;
+  }
+
+  .table {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  .fehlzeiten .tr .td {
+    text-align: left;
+    justify-content: flex-start;
+    padding-left: 12px;
+  }
+
+  .td {
+    font-weight: bold;
+  }
+
+  .button-links,
+  .buttonseite,
+  .glass-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .info {
+
+    padding: 10px;
+    top: 10px;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .infotext {
+    font-size: 13px;
+    padding: 4px;
+  }
+
+  .boxtitle {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .box {
+    width: 100%;
+    /* etwas Luft lassen */
+    max-width: 360px;
+
+  }
+
+  .boxeintrag {
+    font-size: 15px;
+  }
+
+  .linie-mit-text .linientext {
+    font-size: 14px;
+  }
+
+  .linietext {
+    font-weight: bold;
+  }
+
+  /* Tabellenaktionen untereinander für Mini-Screens */
+  .td.aktionen {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: center; /* horizontal zentrieren */
+    justify-content: center; /* optional vertikal zentrieren */
+  }
+  .td.aktionen .button-links {
+    width: 38px;
+    height: 38px;
+}
+}
+
+/* ==========================
+   19. Upload / Forms / User Input
+   ========================== */
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 120px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 60px 40px;
+  border-radius: 20px;
+  max-width: 420px;
+  margin: 60px auto;
+  color: #f1f1f1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.upload:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.upload input[type=submit],
+.upload input[type=file] {
+  background-color: #399142;
+  color: #DCE1E8;
+  font-weight: bold;
+  border: none;
+  border-radius: 40px;
+  padding: 14px 28px;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(57, 145, 66, 0.3);
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+
+.upload input[type=submit]:hover,
+.upload input[type=file]:hover {
+  background-color: #9eaea0;
+  box-shadow: 0 6px 15px rgba(57, 145, 66, 0.4);
+  transform: translateY(-2px);
+}
+
+/* User Eingabe Form */
+.usereingabe {
+  background-color: rgba(40, 40, 40, 0.9);
+  padding: 25px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 50px auto;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.usereingabe h1,
+.usereingabe h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.usereingabe form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.usereingabe input[type="text"],
+.usereingabe input[type="password"],
+.usereingabe input[type="datetime-local"],
+.usereingabe input[type="date" i] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.usereingabe button.eingabe-feld,
+.usereingabe input[type="submit"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #6fa96f;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+.usereingabe button.eingabe-feld:hover,
+.usereingabe input[type="submit"]:hover {
+  background-color: #5e8c5e;
+}
+
+/* ==========================
+   20. Login Box
+   ========================== */
+
+.login-box {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(56, 56, 56, 0.95);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 40px 35px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-begruesung {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: #f5f5f5;
+  line-height: 1.3;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.login-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #7fa0c1;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #5e8c5e, #6fa96f);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+  background: linear-gradient(135deg, #6fa96f, #7fb57f);
+  transform: translateY(-2px);
+}
+
+.login-link-wrapper {
+  margin-top: 15px;
+}
+
+.login-link {
+  color: #7fa0c1;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #a5c3e0;
+}
+
+/* ==========================
+   MOBILE OPTIMIERUNG
+   ========================== */
+@media (max-width: 480px) {}
+
+
+/* ==========================
+   21. Flash Messages / Status / Buttons
+   ========================== */
+
+.flash {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 40%;
+  text-align: center;
+  padding: 8px;
+  background: lightgray;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flash-error {
+  background-color: rgb(216, 113, 113);
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.status.eingereicht {
+  padding: 5px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.status.nicht-eingereicht {
+  padding: 5px;
+  background-color: #e74c3c;
+  color: white;
+}
+
+.button-links {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.button-links:hover {
+  color: #00bcd4;
+}

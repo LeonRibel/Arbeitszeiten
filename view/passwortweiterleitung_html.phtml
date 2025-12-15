@@ -1,0 +1,16 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="weiterleitung">
+<h3>Passwort vergessen?</h3>
+<p>Geben Sie Ihren Benutzernamen ein, um ein Passwort-Zurücksetzen zu starten:</p>
+</div>
+
+<div class="usereingabe">
+  <form method="post" action="/Passwort/Vergessen">
+    <label for="username">Benutzername</label>
+    <input id="username" type="text" name="username" placeholder="Benutzername" required>
+
+    <input type="submit" value="Token anfordern">
+    <a href="/Passwort/Zuruecksetzen?token=" class="button-link">WEITER</a>
+  </form>
+</div>
+

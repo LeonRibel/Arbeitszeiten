@@ -1,0 +1,80 @@
+<div class="info">
+  <div class="infotext">
+    <label for="urlaubsGeplant">Geplante Urlaubstage:</label><br>
+        <output id="urlaubsGeplant"><?= $urlaubsGeplant ?></output>
+        <br></br>
+     <label for="urlaubsanspruchGesamt">Resturlaub:</label><br>
+        <output id="urlaubsanspruchGesamt"><?= $urlaubsanspruchGesamt ?></output>
+  </div>
+</div>
+
+
+
+<div class="table">
+    <div class="thead"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <div class="tr">
+            <div class="td">Datum</div>
+            <div class="td">Tage</div>
+            <div class="td">Name</div>
+            <div class="td">Status</div>
+            <div class="td-aktionen">Aktionen<a href="Urlaub/update" class="button-link" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin-left: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="20" height="20">
+                    <circle cx="12" cy="12" r="10" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8M8 12h8" />
+                </svg>
+            </a></div>
+</div>
+</div>
+    <div class="tbody">
+        <?php foreach ($urlaub as $urlaub): ?>
+            <div class="tr">
+                <div class="td"><?= htmlspecialchars(date('d.m.Y', strtotime($urlaub['Urlaub_start']))) ?>-<?= htmlspecialchars(date('d.m.Y', strtotime($urlaub['Urlaub_ende']))) ?></div>
+                <div class="td"><?= $urlaub['Tage']; ?> Tage</div>
+                <div class="td"><?= $urlaub['Vorname']; ?></div>
+                <div class="td"><?= $urlaub['Status']; ?></div>
+
+                <div class="td">
+                    <a href="Urlaub/update?id=<?= $urlaub['Urlaub_id'] ?>" class="button-links">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L7.125 19.586l-4.607 1.425 1.425-4.607L16.862 3.487z" />
+                        </svg>
+                    </a>
+                    <a href="Urlaub/genehmigen?id=<?= $urlaub['Urlaub_id']; ?>"
+                        class="button-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </a>
+                    <a href="Urlaub/ablehnen?id=<?= $urlaub['Urlaub_id']; ?>"
+                        class="button-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </a>
+        </div>
+        </div>
+        <?php endforeach; ?>
+     </div>
+</div>
+
+<div class="Seite">
+    <a href="<?= $this->getUrl('Urlaub', $order, $sort, $vorherSeite) ?>" class="buttonseite vorherige">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75-6.75M4.5 12l6.75 6.75"></path>
+        </svg>
+        <div class="text">vorherige Seite</div>
+    </a>
+
+    <a href="<?= $this->getUrl('Urlaub', $order, $sort, 1) ?>" class="seitennummer">1</a>
+    <?php if ($seitenAnzahl > 2): ?> __ <?php endif; ?>
+    <?php if ($seitenAnzahl > 1): ?>
+        <a href="<?= $this->getUrl('Urlaub', $order, $sort, $seitenAnzahl) ?>" class="seitennummer"><?= $seitenAnzahl ?></a>
+    <?php endif; ?>
+
+    <a href="<?= $this->getUrl('Urlaub', $order, $sort, $naechsteSeite) ?>" class="buttonseite">
+        <div class="text">nächste Seite</div>
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+        </svg>
+    </a>
+</div>

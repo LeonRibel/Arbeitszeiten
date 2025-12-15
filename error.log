@@ -1,0 +1,67 @@
+[Thu Sep 18 08:09:39.947419 2025] [lbmethod_heartbeat:notice] [pid 12522] AH02282: No slotmem from mod_heartmonitor
+[Thu Sep 18 08:09:39.984621 2025] [mpm_prefork:notice] [pid 12522] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Thu Sep 18 08:09:39.984678 2025] [core:notice] [pid 12522] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Thu Sep 18 08:22:09.848236 2025] [mpm_prefork:notice] [pid 12522] AH00169: caught SIGTERM, shutting down
+[Thu Sep 18 08:22:28.829510 2025] [lbmethod_heartbeat:notice] [pid 14357] AH02282: No slotmem from mod_heartmonitor
+[Thu Sep 18 08:22:28.854097 2025] [mpm_prefork:notice] [pid 14357] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Thu Sep 18 08:22:28.854163 2025] [core:notice] [pid 14357] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Thu Sep 18 08:23:01.042372 2025] [mpm_prefork:notice] [pid 14357] AH00169: caught SIGTERM, shutting down
+[Thu Sep 18 08:24:33.583504 2025] [lbmethod_heartbeat:notice] [pid 2042] AH02282: No slotmem from mod_heartmonitor
+[Thu Sep 18 08:24:33.626776 2025] [mpm_prefork:notice] [pid 2042] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Thu Sep 18 08:24:33.626904 2025] [core:notice] [pid 2042] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Thu Sep 18 09:10:23.727142 2025] [mpm_prefork:notice] [pid 2042] AH00169: caught SIGTERM, shutting down
+[Thu Sep 18 09:10:42.962387 2025] [lbmethod_heartbeat:notice] [pid 9703] AH02282: No slotmem from mod_heartmonitor
+[Thu Sep 18 09:10:42.988857 2025] [mpm_prefork:notice] [pid 9703] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Thu Sep 18 09:10:42.988926 2025] [core:notice] [pid 9703] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Mon Dec 01 08:33:17.641462 2025] [lbmethod_heartbeat:notice] [pid 9553] AH02282: No slotmem from mod_heartmonitor
+[Mon Dec 01 08:33:17.682424 2025] [mpm_prefork:notice] [pid 9553] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Mon Dec 01 08:33:17.682481 2025] [core:notice] [pid 9553] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Mon Dec 08 17:18:08.761826 2025] [mpm_prefork:notice] [pid 9553] AH00169: caught SIGTERM, shutting down
+[Mon Dec 08 17:18:13.664442 2025] [lbmethod_heartbeat:notice] [pid 87257] AH02282: No slotmem from mod_heartmonitor
+[Mon Dec 08 17:18:13.698280 2025] [mpm_prefork:notice] [pid 87257] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Mon Dec 08 17:18:13.698343 2025] [core:notice] [pid 87257] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Mon Dec 08 17:24:00.431957 2025] [http:error] [pid 87284] [client ::1:51991] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:24:00.433137 2025] [negotiation:error] [pid 87284] [client ::1:51991] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:24:00.436049 2025] [http:error] [pid 87283] [client ::1:51990] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:24:00.437489 2025] [negotiation:error] [pid 87283] [client ::1:51990] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:24:39.531354 2025] [http:error] [pid 87261] [client ::1:52621] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:24:39.532902 2025] [negotiation:error] [pid 87261] [client ::1:52621] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:24:39.552057 2025] [http:error] [pid 87280] [client ::1:52622] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:24:39.552978 2025] [negotiation:error] [pid 87280] [client ::1:52622] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:24:59.455646 2025] [http:error] [pid 87263] [client ::1:52943] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:24:59.456346 2025] [negotiation:error] [pid 87263] [client ::1:52943] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:24:59.479162 2025] [http:error] [pid 87264] [client ::1:52942] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:24:59.480785 2025] [negotiation:error] [pid 87264] [client ::1:52942] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:25:25.660338 2025] [http:error] [pid 87261] [client ::1:53365] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:25:25.661914 2025] [negotiation:error] [pid 87261] [client ::1:53365] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:25:25.662803 2025] [http:error] [pid 87284] [client ::1:53363] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:25:25.663643 2025] [negotiation:error] [pid 87284] [client ::1:53363] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:16.184918 2025] [mpm_prefork:notice] [pid 87257] AH00169: caught SIGTERM, shutting down
+[Mon Dec 08 17:26:21.140620 2025] [lbmethod_heartbeat:notice] [pid 87938] AH02282: No slotmem from mod_heartmonitor
+[Mon Dec 08 17:26:21.164298 2025] [mpm_prefork:notice] [pid 87938] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Mon Dec 08 17:26:21.164358 2025] [core:notice] [pid 87938] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Mon Dec 08 17:26:25.114973 2025] [http:error] [pid 87943] [client ::1:54329] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:25.115775 2025] [negotiation:error] [pid 87943] [client ::1:54329] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:25.119608 2025] [http:error] [pid 87941] [client ::1:54328] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:25.119989 2025] [negotiation:error] [pid 87941] [client ::1:54328] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:27.039359 2025] [http:error] [pid 87942] [client ::1:54361] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:27.040048 2025] [negotiation:error] [pid 87942] [client ::1:54361] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:27.046416 2025] [http:error] [pid 87944] [client ::1:54362] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:27.047366 2025] [negotiation:error] [pid 87944] [client ::1:54362] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:28.204905 2025] [http:error] [pid 87943] [client ::1:54384] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:28.205463 2025] [negotiation:error] [pid 87943] [client ::1:54384] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:28.228085 2025] [http:error] [pid 87945] [client ::1:54383] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:28.230588 2025] [negotiation:error] [pid 87945] [client ::1:54383] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:29.001920 2025] [http:error] [pid 87941] [client ::1:54394] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:29.002479 2025] [negotiation:error] [pid 87941] [client ::1:54394] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:29.003220 2025] [http:error] [pid 87942] [client ::1:54395] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:29.003710 2025] [negotiation:error] [pid 87942] [client ::1:54395] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:29.717720 2025] [http:error] [pid 87944] [client ::1:54410] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:29.718236 2025] [negotiation:error] [pid 87944] [client ::1:54410] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:29.719016 2025] [http:error] [pid 87943] [client ::1:54411] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:29.719561 2025] [negotiation:error] [pid 87943] [client ::1:54411] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:30.265479 2025] [http:error] [pid 87945] [client ::1:54424] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:30.266037 2025] [negotiation:error] [pid 87945] [client ::1:54424] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 08 17:26:30.266940 2025] [http:error] [pid 87941] [client ::1:54425] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
+[Mon Dec 08 17:26:30.267419 2025] [negotiation:error] [pid 87941] [client ::1:54425] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
+[Mon Dec 15 11:03:07.000049 2025] [mpm_prefork:notice] [pid 87938] AH00169: caught SIGTERM, shutting down

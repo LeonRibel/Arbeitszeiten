@@ -1,0 +1,22 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="usereingabe">
+    <h1>Profil bearbeiten</h1>
+
+    <form method="post" action="index.php?path=MeinProfil/update">
+        <label for="Vorname">Vorname</label>
+        <input type="text" id="Vorname" name="Vorname"
+               value="<?= htmlspecialchars($user['Vorname'] ?? '') ?>" required>
+
+        <label for="Nachname">Nachname</label>
+        <input type="text" id="Nachname" name="Nachname"
+               value="<?= htmlspecialchars($user['Nachname'] ?? '') ?>" required>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username"
+               value="<?= htmlspecialchars($user['username'] ?? '') ?>" required>
+
+        <input type="submit" value="Speichern">
+    </form>
+
+    <a href="index.php?path=MeinProfil" class="button-link">Abbrechen</a>
+</div>

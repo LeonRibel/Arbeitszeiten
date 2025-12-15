@@ -1,0 +1,22 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="update">
+  <form method="post">
+    <h3>Arbeitszeit bearbeiten</h3>
+
+    <label for="Start_von">Start von</label>
+    <input id="Start_von" type="datetime-local" name="Start_von" 
+           value="<?= isset($vorhandene_daten["Start_von"]) ? date('Y-m-d\TH:i', strtotime($vorhandene_daten["Start_von"])) : ''; ?>">
+
+    <label for="Ende_bis">Ende bis</label>
+    <input id="Ende_bis" type="datetime-local" name="Ende_bis" 
+           value="<?= isset($vorhandene_daten["Ende_bis"]) ? date('Y-m-d\TH:i', strtotime($vorhandene_daten["Ende_bis"])) : ''; ?>">
+
+    <label for="Aufgaben">Aufgaben</label>
+    <input id="Aufgaben" type="text" name="Aufgaben" value="<?= isset($vorhandene_daten["Aufgaben"]) ? htmlspecialchars($vorhandene_daten["Aufgaben"]) : ''; ?>">
+
+    <input type="hidden" name="id" value="<?= isset($_GET['id']) ? (int)$_GET['id'] : ''; ?>">
+
+    <input type="submit" value="bestätigen">
+    <a href="/" class="button-link">Zurück zum Dashboard</a>
+  </form>
+</div>
