@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* Light Mode - Komplett Weiß */
+body {
+  background-color: #efefe6 !important;
+  color: #1a1a1a !important;
+}
+
+/* Alle Panels und Hintergründe weiß */
+body *:not(svg):not(svg *):not(path) {
+  background-color: #c8c8b9;
+}
+
+/* SVG Icons sollen ihre Tailwind fill-Farben behalten */
+svg, svg * {
+}
+
+/* Erlaube Tailwind fill-Klassen für Icons */
+[data-slot="icon"] {
+  fill: inherit;
+}
+
+/* Hover-Effekte für Icons im Light Mode aktivieren */
+a:hover svg,
+a:hover svg *,
+button:hover svg,
+button:hover svg *,
+svg:hover,
+svg:hover *,
+[data-hover] svg,
+[data-hover] svg * {
+  fill: lightgray !important;
+  stroke: rgb(0, 0, 0) !important;
+}
+
+/* Graue und weiße Texte im Light Mode dunkel machen */
+body .text-gray-900,
+body .text-gray-600,
+body .text-gray-400,
+body .text-white,
+body .text-zinc-950 {
+  color: #5c5b5b ;
+}
+
+/* Outlines und Borders für Light Mode - dunkler */
+* {
+  border-color: #181717;
+  --tw-ring-color: #181717;
+}
+
+input, textarea, select, button {
+  border-color: #2a2a2a;
+  --tw-ring-color: #2a2a2a;
+}
+
+/* Dark Mode - Anthrazit */
+.dark body {
+  background-color: #1b1b1c !important;
+  color: #ffffff !important;
+}
+
+/* Dark Mode Hintergründe zurücksetzen */
+.dark * {
+  background-color: transparent;
+}
+
+/* Icons im Dark Mode hell machen */
+.dark svg:not(:hover):not([data-hover] *),
+.dark svg *:not(:hover):not([data-hover] *) {
+  fill: #ffffff;
+}
+
+.dark [data-slot="icon"]:not(:hover):not([data-hover] *) {
+  fill: #ffffff;
+}
+
+/* Hover-Effekte für Icons im Dark Mode aktivieren */
+.dark svg:hover
+.dark svg:hover *,
+.dark [data-hover] svg,
+.dark [data-hover] svg * {
+  fill: rgb(216, 40, 40);
+  stroke: rgb(216, 40, 40);
+}
+
+/* Hover-Effekte für Text - erlaubt Tailwind hover-Klassen */
+.dark a:hover,
+.dark button:hover,
+.dark [role="button"]:hover,
+.dark [data-hover] {
+  color: rgb(0, 0, 0);
+  stroke-width: 0.5px;
+  background-color: rgb(180, 178, 178);
+}
+
+/* Dunkle Texte im Dark Mode hell machen */
+.dark .text-gray-900,
+.dark .text-gray-600,
+.dark .text-gray-400,
+.dark .text-zinc-950 {
+  color: #ffffff !important;
+}
+
+/* Outlines und Borders für Dark Mode */
+.dark * {
+  border-color: #f1f8d4;
+  --tw-ring-color: #f1f8d4;
+  --table-baseline: 3px;
+
+}
+
+.dark input,
+.dark textarea,
+.dark select,
+.dark button {
+  border-color: #4b5563;
+}
+
+.profile-card {
+  background-color: #c8c8b9 !important;
+  border-width: 2px;
+  border-radius: 18px;
+  border-color:#4b5563;
+
+}
+.profile-card * {
+  background-color: transparent !important;
+}
+
+.search-text {
+  color: #4b5563 !important;
+}
+
+.search-input-text {
+  color: #4b5563 !important;
+}
+
+/* Dark mode */
+.dark .search-text,
+.dark .search-input-text {
+  color: #ffffff !important;
+}
+
+.searchbar{
+  background-color: #000000 !important;
+}

@@ -13,5 +13,11 @@
     ],
     "require": {
         "phpmailer/phpmailer": "^7.0"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ]
 }

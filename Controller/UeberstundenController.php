@@ -22,7 +22,7 @@ class UeberstundenController
     }
 
 
-    public function auslesen()
+    public function auslesen(): void
     {
         if ($_SERVER['REQUEST_METHOD'] == "GET") {
             $id = $_SESSION['user'] ?? null;
@@ -70,26 +70,6 @@ class UeberstundenController
 
         $arbeitszeiten = ArbeitsJahrCollection::fromArray($stunden);
 
-
-        /**
-        foreach ($stunden as $eintrag) {
-            $arbeitszeiten[$jahr][$monat][$woche][$tag] = $eintrag;
-            $wochenStunden += $gesamtStunden;
-            $wochen[$woche] += $gesamtStunden;
-        }
-        $wochenPensum = [];
-        $wochenWarnung = [];
-
-        foreach ($wochen as $woche => $wochenStunden) {
-            $wochenPensum[$woche] = $wochenStunden - 40;
-
-            if ($wochenStunden > 50) {
-                $wochenWarnung[$woche] = 'Achtung: das Wochenpensum von maximal 50std wurde überschritten';
-            } else {
-                $wochenWarnung[$woche] = '';
-            }
-        }
-             */
         return $this->viewHelper->render(
             "Ueberstunden",
             [

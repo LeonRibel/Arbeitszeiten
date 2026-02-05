@@ -65,3 +65,14 @@
 [Mon Dec 08 17:26:30.266940 2025] [http:error] [pid 87941] [client ::1:54425] AH02429: Response header name 'Access-Control-Allow-Origin "http' contains invalid characters, aborting request, referer: http://localhost:5173/
 [Mon Dec 08 17:26:30.267419 2025] [negotiation:error] [pid 87941] [client ::1:54425] AH00690: no acceptable variant: /Applications/XAMPP/xamppfiles/error/HTTP_INTERNAL_SERVER_ERROR.html.var, referer: http://localhost:5173/
 [Mon Dec 15 11:03:07.000049 2025] [mpm_prefork:notice] [pid 87938] AH00169: caught SIGTERM, shutting down
+[Fri Dec 19 10:08:15.002064 2025] [lbmethod_heartbeat:notice] [pid 31733] AH02282: No slotmem from mod_heartmonitor
+[Fri Dec 19 10:08:15.048082 2025] [mpm_prefork:notice] [pid 31733] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Fri Dec 19 10:08:15.048140 2025] [core:notice] [pid 31733] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Mon Jan 05 13:28:00.347565 2026] [mpm_prefork:notice] [pid 31733] AH00169: caught SIGTERM, shutting down
+[Mon Jan 05 13:28:05.273167 2026] [lbmethod_heartbeat:notice] [pid 64458] AH02282: No slotmem from mod_heartmonitor
+[Mon Jan 05 13:28:05.304528 2026] [mpm_prefork:notice] [pid 64458] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Mon Jan 05 13:28:05.304590 2026] [core:notice] [pid 64458] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
+[Mon Jan 19 10:51:27.871392 2026] [mpm_prefork:notice] [pid 64458] AH00169: caught SIGTERM, shutting down
+[Fri Jan 30 09:31:53.924372 2026] [lbmethod_heartbeat:notice] [pid 57790] AH02282: No slotmem from mod_heartmonitor
+[Fri Jan 30 09:31:53.967136 2026] [mpm_prefork:notice] [pid 57790] AH00163: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1 configured -- resuming normal operations
+[Fri Jan 30 09:31:53.967191 2026] [core:notice] [pid 57790] AH00094: Command line: '/Applications/XAMPP/xamppfiles/bin/httpd -E /Applications/XAMPP/xamppfiles/logs/error_log -D SSL -D PHP'
