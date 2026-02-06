@@ -12,7 +12,7 @@ interface MitarbeiterDaten {
         vorname: string;
         nachname: string;
         username: string;
-    }
+    } | any
 }
 
 

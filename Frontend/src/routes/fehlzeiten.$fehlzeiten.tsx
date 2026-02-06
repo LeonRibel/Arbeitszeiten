@@ -26,7 +26,7 @@ function formatDate(date?: string): string {
 
 export default function EditFehlzeiten({ params }: EditFehlzeitenProps) {
   const { t } = useTranslation();
-  const [fehlzeitenDaten, setFehlzeitenDaten] = useState<FehlzeitenDaten | null>(null);
+  const [_, setFehlzeitenDaten] = useState<FehlzeitenDaten | null>(null);
   const [startDatum, setStartDatum] = useState<string>('');
   const [endDatum, setEndDatum] = useState<string>('');
 

@@ -1,4 +1,11 @@
-import { Outlet, useLocation } from 'react-router'
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLocation,
+} from 'react-router'
 import './index.css'
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -46,13 +53,33 @@ import { Navbar, NavbarSpacer, NavbarSection, NavbarItem } from '@catalyst/navba
 import './i18n'
 import { navigationItems } from './routes/NavItem'
 
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="de">
+      <head>
+        <meta charSet="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>arbeitszeit</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  )
+}
+
 export default function Root() {
   const { t, i18n } = useTranslation()
   const location = useLocation()
 
   const [user, setUser] = useState<any>(null)
 
-  const isAuthPage = location.pathname === '/login' || location.pathname === '/logout'
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/logout' || location.pathname === '/register'
 
   useEffect(() => {
     const savedLang = localStorage.getItem('language')

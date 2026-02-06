@@ -4,7 +4,7 @@ import fetchApi from "../fetchApi";
 
 
 export default function Me() {
-    const [data, setData] = useState<{vorname: string, nachname: string}>(null);
+    const [data, setData] = useState<{vorname: string, nachname: string}|null>(null);
     useEffect(() => {
         fetchApi(`/user`)
             .then((jsonData: any) => {

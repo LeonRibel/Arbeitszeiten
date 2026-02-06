@@ -14,13 +14,13 @@ interface ArbeitszeitDaten {
         start: string;
         ende: string;
         aufgaben: string;
-    }
+    } | null
 }
 
 
 export default function EditArbeitszeit({ params }: EditArbeitszeitProps) {
     const { t } = useTranslation();
-    const [arbeitszeitDaten, setArbeitszeitDaten] = useState<ArbeitszeitDaten>({ vorhandene_daten: {} });
+    const [arbeitszeitDaten, setArbeitszeitDaten] = useState<ArbeitszeitDaten>({ vorhandene_daten: null });
     const [start, setStart] = useState<string>('');
     const [ende, setEnde] = useState<string>('');
     const [aufgaben, setAufgaben] = useState<string>('');

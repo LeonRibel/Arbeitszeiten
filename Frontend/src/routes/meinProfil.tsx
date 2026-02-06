@@ -23,7 +23,7 @@ export default function Profil() {
     const [data, setData] = useState<ProfilData | null>(null)
     const { t, i18n } = useTranslation()
 
-    const [language, setLanguage] = useState(() => {
+    const [_, setLanguage] = useState(() => {
     return localStorage.getItem('language') || 'de'
   })
 
@@ -35,11 +35,6 @@ export default function Profil() {
     }
   }, [i18n])
 
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang)
-    localStorage.setItem('language', lang)
-    setLanguage(lang)
-  }
 
     useEffect(() => {
             fetchApi('/MeinProfil')

@@ -37,7 +37,7 @@ export default function Ueberstunden() {
     const [data, setData] = useState<UeberstundenData | null>(null)
      const { t, i18n } = useTranslation()
 
-    const [language, setLanguage] = useState(() => {
+    const [_, setLanguage] = useState(() => {
     return localStorage.getItem('language') || 'de'
   })
 
@@ -47,13 +47,7 @@ export default function Ueberstunden() {
       i18n.changeLanguage(saved)
       setLanguage(saved)
     }
-  }, [i18n])
-
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang)
-    localStorage.setItem('language', lang)
-    setLanguage(lang)
-  }
+  }, [i18n]);
 
     useEffect(() => {
             fetchApi('/Ueberstunden')

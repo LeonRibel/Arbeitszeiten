@@ -1,0 +1,1 @@
+import{j as m}from"./jsx-runtime-u17CrQMm.js";import{c as o}from"./clsx-B-dksMZM.js";function n({className:t,level:e=1,...s}){let x=`h${e}`;return m.jsx(x,{...s,className:o(t,"text-2xl/8 font-semibold text-zinc-950 sm:text-xl/8 dark:text-white")})}export{n as H};

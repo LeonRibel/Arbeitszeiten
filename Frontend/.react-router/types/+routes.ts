@@ -65,6 +65,9 @@ type Pages = {
   "/meinProfil": {
     params: {};
   };
+  "/register": {
+    params: {};
+  };
   "/settings": {
     params: {};
   };
@@ -108,7 +111,7 @@ type Pages = {
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/arbeitszeiten/:arbeitszeit" | "/projekte" | "/kunden" | "/projekte/neu" | "/ueberstunden" | "/mitarbeiter" | "/mitarbeiter/:mitarbeiter" | "/mitarbeiter/neu" | "/mitarbeiter/new" | "/fehlzeiten" | "/fehlzeiten/:fehlzeiten" | "/fehlzeiten/neu" | "/fehlzeiten/new" | "/kunden/neu" | "/meinProfil" | "/settings" | "/NavItem" | "/logout" | "/search" | "/urlaub" | "/urlaub/:urlaub" | "/urlaub/neu" | "/urlaub/new" | "/about" | "/login" | "/neu" | "/me";
+    page: "/" | "/arbeitszeiten/:arbeitszeit" | "/projekte" | "/kunden" | "/projekte/neu" | "/ueberstunden" | "/mitarbeiter" | "/mitarbeiter/:mitarbeiter" | "/mitarbeiter/neu" | "/mitarbeiter/new" | "/fehlzeiten" | "/fehlzeiten/:fehlzeiten" | "/fehlzeiten/neu" | "/fehlzeiten/new" | "/kunden/neu" | "/meinProfil" | "/register" | "/settings" | "/NavItem" | "/logout" | "/search" | "/urlaub" | "/urlaub/:urlaub" | "/urlaub/neu" | "/urlaub/new" | "/about" | "/login" | "/neu" | "/me";
   };
   "routes/arbeitszeiten.$arbeitszeit.tsx": {
     id: "routes/arbeitszeiten.$arbeitszeit";
@@ -177,6 +180,10 @@ type RouteFiles = {
   "routes/meinProfil.tsx": {
     id: "routes/meinProfil";
     page: "/meinProfil";
+  };
+  "routes/register.tsx": {
+    id: "routes/register";
+    page: "/register";
   };
   "routes/settings.tsx": {
     id: "routes/settings";
@@ -255,6 +262,7 @@ type RouteModules = {
   "routes/fehlzeiten.new": typeof import("./src/routes/fehlzeiten.new.tsx");
   "routes/kunden.neu": typeof import("./src/routes/kunden.neu.tsx");
   "routes/meinProfil": typeof import("./src/routes/meinProfil.tsx");
+  "routes/register": typeof import("./src/routes/register.tsx");
   "routes/settings": typeof import("./src/routes/settings.tsx");
   "routes/NavItem": typeof import("./src/routes/NavItem.tsx");
   "routes/_index": typeof import("./src/routes/_index.tsx");

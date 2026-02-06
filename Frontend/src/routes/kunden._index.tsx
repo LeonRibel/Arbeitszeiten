@@ -38,7 +38,7 @@ export default function Mitarbeiter() {
     const [expandedId, setExpandedId] = useState<number | null>(null)
     const { t, i18n } = useTranslation()
 
-    const [language, setLanguage] = useState(() => {
+    const [_, setLanguage] = useState(() => {
         return localStorage.getItem('language') || 'de'
     })
 

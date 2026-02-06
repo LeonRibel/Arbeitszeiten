@@ -1,0 +1,1 @@
+import{w as r}from"./chunk-FGUA77HG-DXx5pbNv.js";import{j as o}from"./jsx-runtime-u17CrQMm.js";import{u as n}from"./useTranslation-DlJuNdwr.js";const u=r(function(){const{t}=n();return o.jsx("main",{children:o.jsx("h1",{children:t("about")})})});export{u as default};

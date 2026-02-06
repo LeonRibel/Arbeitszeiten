@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@catalyst/table";
 import { Link } from "react-router-dom";
-import { CalendarDaysIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import fetchApi from "../fetchApi";
 
 interface Projekt {

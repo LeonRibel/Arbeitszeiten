@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@catalyst/table"
-import { Link } from "react-router-dom"
 import { useTranslation } from 'react-i18next'
 import fetchApi from "../fetchApi";
 
@@ -21,7 +20,7 @@ export default function mitarbeiter() {
     const [data, setData] = useState<MitarbeiterData | null>(null)
      const { t, i18n } = useTranslation()
 
-    const [language, setLanguage] = useState(() => {
+    const [_, setLanguage] = useState(() => {
     return localStorage.getItem('language') || 'de'
   })
 
@@ -32,12 +31,6 @@ export default function mitarbeiter() {
       setLanguage(saved)
     }
   }, [i18n])
-
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang)
-    localStorage.setItem('language', lang)
-    setLanguage(lang)
-  }
 
 
     useEffect(() => {

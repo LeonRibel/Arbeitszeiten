@@ -112,10 +112,18 @@ export default function Login() {
                     </Button>
                 </form>
 
-                <div className="text-center text-sm">
-                    <a href="/settings" className="text-blue-600 dark:text-blue-400 hover:underline">
-                        Passwort vergessen?
-                    </a>
+                <div className="text-center text-sm space-y-2">
+                    <div>
+                        <a href="/settings" className="text-blue-600 dark:text-blue-400 hover:underline">
+                            Passwort vergessen?
+                        </a>
+                    </div>
+                    <div>
+                        <span className="text-zinc-500 dark:text-zinc-400">Noch kein Konto? </span>
+                        <a href="/register" className="text-blue-600 dark:text-blue-400 hover:underline">
+                            Registrieren
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
