@@ -15,7 +15,7 @@
     "@react-router/fs-routes": "^7.10.0",
     "@react-router/node": "^7.10.0",
     "clsx": "^2.1.1",
-    "i18next": "^25.7.2",
+    "i18next": "^26.3.4",
     "isbot": "^5",
     "motion": "^12.23.25",
     "react": "^19.2.0",
